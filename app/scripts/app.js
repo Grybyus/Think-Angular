@@ -29,6 +29,10 @@
             templateUrl: 'views/registro.html',
             controller: 'registroCtrl'
           })  
+        .when('/perfil', {
+            templateUrl: 'views/perfil.html',
+            controller: 'perfilCtrl'
+          })
         .otherwise({
             redirectTo: '/home'
           });
