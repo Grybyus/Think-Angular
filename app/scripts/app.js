@@ -33,6 +33,10 @@
             templateUrl: 'views/perfil.html',
             controller: 'perfilCtrl'
           })
+        .when('/upload', {
+            templateUrl: 'views/upload.html',
+            controller: 'uploadCtrl'
+          })
         .otherwise({
             redirectTo: '/home'
           });
