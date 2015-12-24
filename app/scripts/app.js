@@ -1,7 +1,7 @@
 (function(){
 
     angular.module('angularSpa', [
-    'ngRoute'
+    'ngRoute','ngFileUpload'
     ])
     .config(function($routeProvider){
         $routeProvider

@@ -26,5 +26,9 @@
         "dist/js/bootstrap.js"
       ]
     }
+  },
+  "devDependencies": {
+    "angular-file-upload": "~2.2.0",
+    "ng-file-upload": "~10.1.14"
   }
 }
