@@ -1,26 +1,26 @@
-<div id="container2" style="background-color: rgba(255, 255, 255, 0.5)>
-    <form name="form" ng-submit="vm.login()" role="form">
+<div id="container2">
+    <form name="form" ng-submit="registrar()" role="form">
             <h2 ALIGN=center>~ Registro ~</h2>
-            <label for="username">Username</label>
-            <input type="text" name="username" placeholder="Ej: PepeBanana" id="username" class="form-control" ng-model="vm.username" required />
+            <label for="username">Nombre de usuario</label>
+            <input type="text" name="username" placeholder="Ej: PepeBanana" id="username" class="form-control" ng-model="user.username" required />
             <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
-            <label for="password">Password</label>
-            <input type="password" name="password" placeholder="Ej: Banana123" id="password" class="form-control" ng-model="vm.password" required />
+            <label for="password">Contraseña</label>
+            <input type="password" name="password" placeholder="Ej: Banana123" id="password" class="form-control" ng-model="user.password" required />
+            <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+            <label for="password">Repita Contraseña</label>
+            <input type="password" name="password" placeholder="Ej: Banana123" id="password" class="form-control" ng-model="user.password2" required />
             <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
             <label for="correo">Email</label>
-            <input type="correo" name="correo" placeholder="Ej: pepe.tu@bana.cl" id="correo" class="form-control" ng-model="vm.correo" required />
+            <input type="correo" name="correo" placeholder="Ej: pepe.tu@bana.cl" id="correo" class="form-control" ng-model="user.correo" required />
             <span ng-show="form.correo.$dirty && form.correo.$error.required" class="help-block">Correo is required</span>
-        <form name="tatuador" ng-controller="registroCtrl">
-          <label>
-            <input type="checkbox" ng-model="checkboxModel.tatuador" id="Tatuador">
-                <label for="Tatuador">Tatuador</label>
-          </label><br/>
-      <!--Agregar la variable true para el checkbox--
-        Crear la form parra guardar su direccion o eso se hara dentro del perfil??-->
-        </form>
 
+          <label>
+            <input type="checkbox" ng-model="user.tatuador" id="Tatuador">
+                <label for="Tatuador">Tatuador</label>
+          </label>
+          <br/>
         <div class="form-actions" ALIGN=center>
-            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Registrar</button>
+            <button type="submit" class="btn btn-primary">Registrar</button>
             <a href="#/login" class="btn btn-link">ir al Login</a>
         </div>
     </form>

@@ -2,7 +2,7 @@
     .controller('showActorCtrl', function($scope,$routeParams ,actorsService){
         $scope.actors =[];
         $scope.actor = $routeParams.id;
-
+            
         function getActor(id){
             actorsService.getActor(id)
             .success(function(data){
