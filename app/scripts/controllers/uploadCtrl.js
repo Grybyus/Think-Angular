@@ -7,6 +7,17 @@
             $scope.selectedFile = [];
             $scope.uploadProgress = 0;
 
+            $scope.setFile = function(element) {
+                $scope.currentFile = element.files[0];
+                var reader = new FileReader();
+
+                reader.onload = function(event) {
+                    $scope.image_source = event.target.result
+                    $scope.$apply()
+                    }
+                reader.readAsDataURL(element.files[0]);
+            }
+
             $scope.uploadFile = function () {
                 var file = $scope.selectedFile[0];
                 $scope.upload = Upload.upload({
@@ -29,6 +40,7 @@
             };
         }
     ])
+
     .directive('progressBar', [
         function () {
             return {

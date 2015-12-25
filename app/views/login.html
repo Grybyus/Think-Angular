@@ -3,14 +3,14 @@
             <img ALIGN=center class="logo" src="images/logoconnombre.png" alt="logo">
             <br></br>
             <label for="username">Username</label>
-            <input ng-model="user.nombre" type="name" class="form-control" placeholder="Ej: PepeBan" id="username" required = "" autofocus="">
+            <input ng-model="user.nombre" type="name" class="form-control" placeholder="Ej: Pepe123" id="username" required = "" autofocus="">
             <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block"></span>
             <label for="password">Password</label>
             <input type="password" name="password" placeholder="****************" id="password" class="form-control" ng-model="user.password" required />
             <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block"></span>
             <p class="clearfix">
                 <input ng-model="recuerdo" type="checkbox" name="remember" id="remember">
-                <label for="remember">Remember me</label>
+                <label for="remember">Recuerdame</label>
             </p>
             <div id="lower" ALIGN=center>
             <button type="submit" ng-disabled="form.$invalid || user.dataLoading" class="btn btn-primary" ng-click="newdata()">Login</button>
