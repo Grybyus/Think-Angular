@@ -1,10 +1,6 @@
     angular.module('angularSpa')
-    .controller('registroCtrl', function($scope, registroService){
+    .controller('registroCtrl', function($scope, registroService, logService){
         $scope.registrar = function (){
-           
-            usuarioEjemplo = {correo:"lucho@luchoo2sss2332www332221", 
-            pass:"1234", nombreUsuario:"peipitoxx", 
-            tipoUsuario:"TATUADOR"}
             
             if($scope.user.tatuador){
                 tatuador = "TATUADOR";
@@ -21,6 +17,11 @@
             registroService.registrar(usuario)
                 .success(function(data){
                     //Respuesta del servidor
+                    $scope.user.id = 1;
+                    logService.datos.id = data["idUsuario"];
+                    logService.datos.nombre = data["nombreUsuario"];
+                    logService.datos.mail = data["correo"];
+
                     console.log(data);
                     console.log("mail "+data["correo"]);
                     console.log("id "+data["idUsuario"]);

@@ -1,10 +1,11 @@
 (function(){
     angular.module('angularSpa')
-	.controller('MainCtrl', function($scope){
+	.controller('MainCtrl', function($scope, logService){
 		$scope.items = [
-	      'Tatuajes',
-	      'Tatuadores',
-	      'Todo lo que necesitas saber'
+			logService.datos.nombre,
+	        logService.datos.id,
+	      	logService.datos.mail,
+
 	    ];
 	});
 })();

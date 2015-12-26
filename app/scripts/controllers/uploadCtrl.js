@@ -1,11 +1,12 @@
     angular.module('angularSpa')
     .controller('uploadCtrl', [
         '$scope',
-        'Upload',
-        function ($scope, Upload) {
+        'Upload','logService', 
+        function ($scope, Upload, logService) {
             $scope.model = {};
             $scope.selectedFile = [];
             $scope.uploadProgress = 0;
+            console.log(logService.datos.id);
 
             $scope.setFile = function(element) {
                 $scope.currentFile = element.files[0];
@@ -23,7 +24,7 @@
                 $scope.upload = Upload.upload({
                     url: 'http://localhost:8080/Think-INK/rest/fileupload',
                     method: 'POST',
-                    data: {'idUsuario':2},
+                    data: {'idUsuario':1},
                     file: file
                 }).progress(function (evt) {
                     $scope.uploadProgress = parseInt(100.0 * evt.loaded / evt.total, 10);
