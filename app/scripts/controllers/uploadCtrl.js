@@ -1,13 +1,12 @@
     angular.module('angularSpa')
     .controller('uploadCtrl', [
         '$scope',
-        'Upload','logService', 
-        function ($scope, Upload, logService) {
+        'Upload', 
+        function ($scope, Upload) {
             $scope.model = {};
             $scope.selectedFile = [];
             $scope.uploadProgress = 0;
-            console.log(logService.datos.id);
-
+            
             $scope.setFile = function(element) {
                 $scope.currentFile = element.files[0];
                 var reader = new FileReader();
@@ -20,7 +19,8 @@
             }
 
             $scope.uploadFile = function () {
-                var file = $scope.selectedFile[0];
+                var file = $scope.currentFile;
+                console.log("FILE"+file);
                 $scope.upload = Upload.upload({
                     url: 'http://localhost:8080/Think-INK/rest/fileupload',
                     method: 'POST',
@@ -33,11 +33,6 @@
                     console.log("respuesta: "+JSON.stringify(data, null, 4));
                     //do something
                 });
-            };
-
-            $scope.onFileSelect = function ($files) {
-                $scope.uploadProgress = 0;
-                $scope.selectedFile = $files;
             };
         }
     ])

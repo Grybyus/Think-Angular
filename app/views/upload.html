@@ -1,7 +1,7 @@
 <form ng-submit="uploadFile()">
    <div class="row" >
          <div  ALIGN=center class = "contenedor" style="height:auto; background-color: rgba(255, 255, 255, 0.5)">
-                  <input type="file" ng-file-select="onFileSelect($files)" onchange="angular.element(this).scope().setFile(this)" accept="image/*">
+                  <input type="file" ng-file-select="angular.element(this).scope().onFileSelect($files)" onchange="angular.element(this).scope().setFile(this)" accept="image/*">
                   <button button type="submit" class="btn btn-default btn-lg">
                   <i class="fa fa-cloud-upload"></i>
                     &nbsp;

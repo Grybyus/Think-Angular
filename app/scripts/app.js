@@ -17,9 +17,9 @@
             templateUrl: 'views/showActor.html',
             controller: 'showActorCtrl'
         })
-        .when('/actors', {
-            templateUrl: 'views/actors.html',
-            controller: 'actorsCtrl'
+        .when('/galeria', {
+            templateUrl: 'views/galeria.html',
+            controller: 'galeriaCtrl'
           })  
         .when('/login', {
             templateUrl: 'views/login.html',

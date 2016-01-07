@@ -1,0 +1,14 @@
+<div class="container">
+	<h1>Galeria</h1>
+	<div class="row">
+		<div class="col-sm-6 col-md-4" ng-repeat="pic in fotos">
+			<!-- Cargamos las imagenes con sus respectivos datos (galeria.js) -->
+			<img src = "http://localhost:8080/Think-INK/verFoto/{{pic.idFoto}}" class="thumbnail">
+
+            <div class="thumbnail">
+			<!-- Botton de like-->
+			<p><a href="#" class="btn btn-primary" role="button">Like</a></p>
+			</div>
+		</div>
+	</div> 	
+</div>
