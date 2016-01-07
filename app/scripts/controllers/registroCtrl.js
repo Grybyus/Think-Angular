@@ -1,17 +1,17 @@
     angular.module('angularSpa')
     .controller('registroCtrl', function($scope, registroService, logService){
         $scope.registrar = function (){
-            
+
             if($scope.user.tatuador){
                 tatuador = "TATUADOR";
             }else{
                 tatuador = "USUARIO";
             }
-            
+
             usuario = {correo:$scope.user.correo, 
             pass:$scope.user.password, nombreUsuario:$scope.user.username, 
             tipoUsuario:tatuador}
-            
+
             console.log("Consultando"+JSON.stringify(usuario));
             
             registroService.registrar(usuario)
