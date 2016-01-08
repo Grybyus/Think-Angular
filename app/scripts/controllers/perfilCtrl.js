@@ -1,5 +1,5 @@
 angular.module('angularSpa')
-  .controller'perfilCtrl', 
+  .controller('perfilCtrl'), 
 	function ($scope, cargarPerfil) {
       var idUsuario = {'idUsuario':5};
 	  perfilService.cargarPerfil(idUsuario)

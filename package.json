@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
+    "angular-swx-session-storage": "0.0.9",
     "bower": "^1.6.5",
     "del": "^2.0.2",
     "gulp": "^3.9.0",

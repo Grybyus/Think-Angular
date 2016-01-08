@@ -1,7 +1,7 @@
 (function(){
 
     angular.module('angularSpa', [
-    'ngRoute','ngFileUpload'
+    'ngRoute','ngFileUpload','ngStorage'
     ])
     .config(function($routeProvider){
         $routeProvider
@@ -40,6 +40,9 @@
         .otherwise({
             redirectTo: '/home'
           });
-    });
+    }).run(["$rootScope", "$location", CONFIGURATION, LOG_SERVICE, 
+         function ($rootScope, $location, Configuration, LogService) {
+
+            }] );
 
 })();

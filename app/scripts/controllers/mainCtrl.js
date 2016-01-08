@@ -1,13 +1,12 @@
 (function(){
     angular.module('angularSpa')
-	.controller('MainCtrl', function($scope, logService){
+	.controller('MainCtrl', function($scope, logService,$localStorage,$sessionStorage){
         console.log("PERFIL MAIN CTRL");
-        console.log(logService.datos)
+        console.log($localStorage)
 		$scope.items = [
-			logService.datos["nombre"],
-	        logService.datos["id"],
-	      	logService.datos["mail"],
-
+            $localStorage.nombre,
+            $localStorage.id,
+            $localStorage.correo
 	    ];
 	});
 })();

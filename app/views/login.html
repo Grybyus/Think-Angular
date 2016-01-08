@@ -2,8 +2,8 @@
     <form name="form" role="form">
             <img ALIGN=center class="logo" src="images/logoconnombre.png" alt="logo">
             <br></br>
-            <label for="username">Username</label>
-            <input ng-model="user.nombre" type="name" class="form-control" placeholder="Ej: Pepe123" id="username" required = "" autofocus="">
+            <label for="username">Correo</label>
+            <input ng-model="user.correo" type="name" class="form-control" placeholder="Ej: Pepe123" id="username" required = "" autofocus="">
             <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block"></span>
             <label for="password">Password</label>
             <input type="password" name="password" placeholder="****************" id="password" class="form-control" ng-model="user.password" required />
@@ -13,9 +13,8 @@
                 <label for="remember">Recuerdame</label>
             </p>
             <div id="lower" ALIGN=center>
-            <a href="#/home">
-            <button type="submit" ng-disabled="form.$invalid || user.dataLoading" class="btn btn-primary" ng-click="newdata()">Login</button>
-            </a>
+            <button type="submit" ng-disabled="form.$invalid || user.dataLoading" class="btn btn-primary" ng-click="login()">Login</button>
+            
             <a href="#/registro" class="btn btn-link"><font color="black">Registrate!</font></a>
 
     </form>
