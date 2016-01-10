@@ -19,20 +19,14 @@ angular.module('angularSpa')
     $scope.registraMap = function (){
             var marcador = $scope.marcadores[0];
 
-            console.log("Consultando"+JSON.stringify(logService.datos.id));
-            
-            this.registrar = function(){
-            return $http({
-                    url: urlBase,
-                    method: "POST",
-                    data: {'idUsuario':1}, //CAMBIAR
-                    mark: marcador
-                }).success(function (data) {
-                    
-                    console.log("respuesta: "+JSON.stringify(data, null, 4));
-                    //do something
-                });
-            }
+            console.log("Consultando"+JSON.stringify($localStorage.id));
+            datos = {nombreLocal:"local de prueba",latitud: ""+marcador["lat"],
+                 longitud: ""+marcador["lng"], idUsuario:$localStorage.id}
+            mapService.registrar(datos).success(function(data){
+                console.log("EXITOOOOO!!!!")
+                console.log(data)
+            }).error(function(error){
+                console.log(error);
+            });
     }
-
 });
