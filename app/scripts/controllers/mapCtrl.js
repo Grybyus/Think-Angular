@@ -1,5 +1,5 @@
 angular.module('angularSpa')
-.controller('MapCtrl', function($scope, logService,$localStorage,$sessionStorage,NgMap){
+.controller('MapCtrl', function($scope, logService,$localStorage,$sessionStorage,NgMap,mapService){
     //Arreglo de marcadores, que se mantendra con largo 1
    $scope.marcadores = [{lat:-33.4463731,lng:-70.6871091}];
    //Una vez inicializado el mapa se guarda en el scope
@@ -15,4 +15,24 @@ angular.module('angularSpa')
         console.log("AGREGAR EN ");
         console.log($scope.marcadores[0])
     }
+
+    $scope.registraMap = function (){
+            var marcador = $scope.marcadores[0];
+
+            console.log("Consultando"+JSON.stringify(logService.datos.id));
+            
+            this.registrar = function(){
+            return $http({
+                    url: urlBase,
+                    method: "POST",
+                    data: {'idUsuario':1}, //CAMBIAR
+                    mark: marcador
+                }).success(function (data) {
+                    
+                    console.log("respuesta: "+JSON.stringify(data, null, 4));
+                    //do something
+                });
+            }
+    }
+
 });

@@ -2,5 +2,10 @@
   <ng-map center="[-33.4463731,-70.6871091]" on-click="setMarcador()">
      <marker ng-repeat="pos in marcadores" position="{{pos.lat}}, {{pos.lng}}"></marker>
   </ng-map>
+  <form name="form" ng-submit="registraMap()" role="form">
+        <div class="form-actions" ALIGN=center>
+            <button type="submit" class="btn btn-primary">Registrar Marcador</button>
+        </div>
+    </form>
 </body>
  
