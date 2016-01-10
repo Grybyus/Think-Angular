@@ -1,7 +1,7 @@
 (function(){
 
     angular.module('angularSpa', [
-    'ngRoute','ngFileUpload','ngStorage'
+    'ngRoute','ngFileUpload','ngStorage','ngMap'
     ])
     .config(function($routeProvider){
         $routeProvider
@@ -36,6 +36,10 @@
         .when('/upload', {
             templateUrl: 'views/upload.html',
             controller: 'uploadCtrl'
+          })
+        .when('/map', {
+            templateUrl: 'views/map.html',
+            controller: 'MapCtrl'
           })
         .otherwise({
             redirectTo: '/home'
