@@ -1,0 +1,6 @@
+<body>
+  <ng-map center="[-33.4463731,-70.6871091]" on-click="setMarcador()">
+     <marker ng-repeat="pos in marcadores" position="{{pos.lat}}, {{pos.lng}}"></marker>
+  </ng-map>
+</body>
+ 
