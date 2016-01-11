@@ -1,11 +1,16 @@
 <body>
-  <ng-map center="[-33.4463731,-70.6871091]" on-click="setMarcador()">
-     <marker ng-repeat="pos in marcadores" position="{{pos.lat}}, {{pos.lng}}"></marker>
-  </ng-map>
-  <form name="form" ng-submit="registraMap()" role="form">
-        <div class="form-actions" ALIGN=center>
-            <button type="submit" class="btn btn-primary">Registrar Marcador</button>
-        </div>
-    </form>
+	<div  ALIGN=center class = "container3" style="height:auto; background-color: rgba(255, 255, 255, 0.5)">
+		  <ng-map center="[-33.4463731,-70.6871091]" on-click="setMarcador()">
+		     <marker ng-repeat="pos in marcadores" position="{{pos.lat}}, {{pos.lng}}"></marker>
+		  </ng-map>
+	  	<form name="form" ng-submit="registraMap()" role="form">
+	        <label for="mapname">Nombre del Local</label>
+	        <input ng-model="map.nom" type="name" class="form-control" placeholder="Ej: Think-ink" id="mapname" required = "" autofocus="">
+	        <span ng-show="form.mapname.$dirty && form.mapname.$error.required" class="help-block"></span>
+	        <div class="form-actions" ALIGN=center>
+	            <button type="submit" class="btn btn-primary">Registrar Marcador</button>
+	        </div>
+	    </form>
+	</div>    
 </body>
  
