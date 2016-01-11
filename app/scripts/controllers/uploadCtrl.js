@@ -2,7 +2,7 @@
     .controller('uploadCtrl', [
         '$scope',
         'Upload', 
-        function ($scope, Upload) {
+        function ($scope, Upload,$localStorage,$sessionStorage) {
             $scope.model = {};
             $scope.selectedFile = [];
             $scope.uploadProgress = 0;
@@ -24,7 +24,7 @@
                 $scope.upload = Upload.upload({
                     url: 'http://localhost:8080/Think-INK/rest/fileupload',
                     method: 'POST',
-                    data: {'idUsuario':1},//CAMBIAR
+                    data: {'idUsuario':$localStorage.id},
                     file: file
                 }).progress(function (evt) {
                     $scope.uploadProgress = parseInt(100.0 * evt.loaded / evt.total, 10);

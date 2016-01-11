@@ -22,6 +22,7 @@ angular.module('angularSpa')
             console.log("Consultando"+JSON.stringify($localStorage.id));
             datos = {nombreLocal:"local de prueba",latitud: ""+marcador["lat"],
                  longitud: ""+marcador["lng"], idUsuario:$localStorage.id}
+                 
             mapService.registrar(datos).success(function(data){
                 console.log("EXITOOOOO!!!!")
                 console.log(data)

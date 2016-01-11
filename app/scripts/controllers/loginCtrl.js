@@ -9,6 +9,7 @@
         
         $scope.login = function(){
             usuario = {correo:$scope.user.correo, pass:$scope.user.password}
+            
             loginService.ingresar(usuario).success(function(data){
                 console.log("EXITOOOOO!!!!")
                 console.log(data)

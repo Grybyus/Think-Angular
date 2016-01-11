@@ -17,7 +17,6 @@
             registroService.registrar(usuario)
                 .success(function(data){
                     //Respuesta del servidor
-                    $scope.user.id = 1;
                     logService.datos.id = data["idUsuario"];
                     logService.datos.nombre = data["nombreUsuario"];
                     logService.datos.mail = data["correo"];

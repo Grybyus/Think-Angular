@@ -1,10 +1,10 @@
 angular.module('angularSpa')
-  .controller('galeriaCtrl', function ($scope, galeriaService) {
+  .controller('galeriaCtrl', function ($scope, galeriaService,$localStorage,$sessionStorage) {
 	$scope.getTimes=function(n){
      return new Array(n);
 	};
 	/**Colocamos los datos del usuario para obtener la id de la galeria */
-	var idUsuario = {'idUsuario':1};
+	var idUsuario = {'idUsuario':$localStorage.id};
 	var tipo = "SUBIDA";
 	usuario = {idUsuario:idUsuario,tipo:tipo}
 	
