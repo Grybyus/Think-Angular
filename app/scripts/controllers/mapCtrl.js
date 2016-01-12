@@ -15,7 +15,7 @@ angular.module('angularSpa')
         console.log("AGREGAR EN ");
         console.log($scope.marcadores[0])
     }
-
+    
     $scope.registraMap = function (){
             var marcador = $scope.marcadores[0];
 

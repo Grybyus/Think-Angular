@@ -41,6 +41,10 @@
             templateUrl: 'views/map.html',
             controller: 'MapCtrl'
           })
+        .when('/mapUs', {
+            templateUrl: 'views/mapUs.html',
+            controller: 'MapUsCtrl'
+          })
         .otherwise({
             redirectTo: '/home'
           });
