@@ -8,7 +8,7 @@
 	        <input ng-model="map.nom" type="name" class="form-control" placeholder="Ej: Think-ink" id="mapname" required = "" autofocus="">
 	        <span ng-show="form.mapname.$dirty && form.mapname.$error.required" class="help-block"></span>
 	        <div class="form-actions" ALIGN=center>
-	            <button type="submit" class="btn btn-primary">Registrar Marcador</button>
+	            <button type="submit" ng-disabled="form.$invalid || map.dataLoading" class="btn btn-primary">Registrar Marcador</button>
 	        </div>
 	    </form>
 	</div>    
