@@ -1,6 +1,6 @@
 angular.module('angularSpa')
     .service('mapUsService', function($http){
-        var urlBase = 'http://localhost:8080/Think-INK/gettrabajo?';
+        var urlBase = 'http://localhost:8080/Think-INK/trabajo/obtenerTrabajo';
         this.leerMark = function(datosUsuario){
             return $http({
                     url: urlBase,

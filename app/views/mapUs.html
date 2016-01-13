@@ -1,3 +1,3 @@
-<ng-map center="[-33.4463731,-70.6871091]">
-	<marker ng-repeat="pos in marcador"></marker>
+<ng-map center="[{{marcador[0].lat}},{{marcador[0].lng}}]">
+	<marker ng-repeat="pos in marcador" position="{{pos.lat}}, {{pos.lng}}"></marker>
 </ng-map>
