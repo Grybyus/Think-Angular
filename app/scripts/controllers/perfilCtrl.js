@@ -1,7 +1,5 @@
 angular.module('angularSpa')
-  .controller('perfilCtrl', 
-	function ($scope,perfilService,$localStorage,$sessionStorage) {
-      $scope.tab_url = 'views/main.html';
+  .controller('perfilCtrl',function ($scope,logService,perfilService,$localStorage,$sessionStorage,NgMap,Upload) {
       console.log("PERFIL MAIN CTRL");
       console.log(perfilService.cargarGaleria);
         console.log($localStorage)
@@ -10,7 +8,6 @@ angular.module('angularSpa')
             id:$localStorage.id,
             mail:$localStorage.correo
         };
-        console.log($scope.items);
 	
 	$scope.marcador = [];
     datos = {idUsuario:$localStorage.id}
@@ -30,7 +27,7 @@ angular.module('angularSpa')
             console.log(error);
           });
 	
-        /**Colocamos los datos del usuario para obtener la id de la galeria */
+    /**Colocamos los datos del usuario para obtener la id de la galeria */
     var idUsuario = {'idUsuario':$localStorage.id};
 	var tipo = "SUBIDA";
 	usuario = {idUsuario:idUsuario,tipo:tipo}
@@ -60,5 +57,79 @@ angular.module('angularSpa')
 	for(var i=0;i<lenGaleria;i++){
 		$scope.addPics(i);
 	}
-	console.log(pictures)
-  });
+	
+	//Arreglo de marcadores, que se mantendra con largo 1
+   $scope.marcadores = [{lat:-33.4463731,lng:-70.6871091}];
+   //Una vez inicializado el mapa se guarda en el scope
+   NgMap.getMap().then(function(map) {
+      $scope.map = map;
+    });
+    // Funcion on-Click
+   $scope.setMarcador = function(e){
+        //Reemplazar marcador
+        $scope.marcadores[0] = ({lat:e.latLng.lat(), lng: e.latLng.lng()});
+        //centrar en la posicion del click
+        $scope.map.panTo(e.latLng);
+        console.log("AGREGAR EN ");
+        console.log($scope.marcadores[0])
+    }
+    
+    $scope.registraMap = function (){
+            var marcador = $scope.marcadores[0];
+
+            console.log("Consultando"+JSON.stringify($localStorage.id));
+            datos = {nombreLocal:$scope.map.nom,latitud: ""+marcador["lat"],
+                 longitud: ""+marcador["lng"], idUsuario:$localStorage.id}
+                 
+            perfilService.registrar(datos).success(function(data){
+                console.log("EXITOOOOO!!!!")
+                console.log(data)
+            }).error(function(error){
+                console.log(error);
+            });
+    }
+	
+	//Subir imagen controler
+            $scope.model = {};
+            $scope.selectedFile = [];
+            $scope.uploadProgress = 0;
+            
+            $scope.setFile = function(element) {
+                $scope.currentFile = element.files[0];
+                var reader = new FileReader();
+
+                reader.onload = function(event) {
+                    $scope.image_source = event.target.result
+                    $scope.$apply()
+                    }
+                reader.readAsDataURL(element.files[0]);
+            }
+
+            $scope.uploadFile = function () {
+                var file = $scope.currentFile;
+                console.log("FILE"+file);
+                $scope.upload = Upload.upload({
+                    url: 'http://localhost:8080/Think-INK/rest/fileupload',
+                    method: 'POST',
+                    data: {'idUsuario':$localStorage.id},
+                    file: file
+                }).progress(function (evt) {
+                    $scope.uploadProgress = parseInt(100.0 * evt.loaded / evt.total, 10);
+                }).success(function (data) {
+                    
+                    console.log("respuesta: "+JSON.stringify(data, null, 4));
+                    //do something
+                });
+            };
+  }
+  ).directive('progressBar', [
+        function() {
+            return {
+                link: function ($scope, el, attrs) {
+                    $scope.$watch(attrs.progressBar, function (newValue) {
+                        el.css('width', newValue.toString() + '%');
+                    });
+                }
+            };
+            }
+        ]);

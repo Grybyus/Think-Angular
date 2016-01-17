@@ -1,9 +1,8 @@
-<div class="jumbotron" style="background:images/Pasion.jpg; background-size: 100% auto">
+<div class="jumbotron">
 	<!-- Mostramos la portada, la foto de perfil y el nombre de usuario-->
 	<!-- Obtener los datos del usario para mostrar -->
-
-	<img class="img-thumbnail img-right" src="images/thinkinklogo.png" width="100px" height="100px" alt="perfil">
-	<p><button type="button" class="btn btn-link btn-right">Nombre Usuario</button></p>
+	<div style="background:url(images/Portada.jpg) background-size: 100% auto"></div>
+	<img class="img-thumbnail img-right" src="images/Perfil.jpg" width="150px" height="150px" alt="perfil">
 </div>
 
 <div class="jumbotron">
@@ -12,6 +11,8 @@
 		  <button type="button" class="btn btn-primary" ng-click="tab_url = 'views/main.html'">Perfil</button>
 		  <button type="button" class="btn btn-primary" ng-click="tab_url = 'views/galeria.html'">Galeria</button>
 		  <button type="button" class="btn btn-primary" ng-click="tab_url = 'views/mapUs.html'">Ubicacion</button>
+		  <button type="button" class="btn btn-primary" ng-click="tab_url = 'views/upload.html'">Subir Tatuaje</button>
+		  <button type="button" class="btn btn-primary" ng-click="tab_url = 'views/map.html'">Cambiar Ubicacion</button>
 		</div>
 		<div >
 			<div ng-include="tab_url" ></div>

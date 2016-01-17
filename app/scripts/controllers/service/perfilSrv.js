@@ -3,6 +3,7 @@ angular.module('angularSpa')
         var urlBase = 'http://localhost:8080/Think-INK/rest/verPerfil';
         var urlGaleria = 'http://localhost:8080/Think-INK/verGaleria';
 		var urlMap = 'http://localhost:8080/Think-INK/trabajo/obtenerTrabajo';
+		var urlJob = 'http://localhost:8080/Think-INK/trabajo/crearTrabajo';
         this.cargarGaleria = function(datosUsuario){
             return $http({
                     url: urlGaleria,
@@ -22,6 +23,14 @@ angular.module('angularSpa')
 		this.leerMark = function(datosUsuario){
             return $http({
                     url: urlMap,
+                    method: "POST",
+                    data: JSON.stringify(datosUsuario),
+                    headers: {'Content-Type': 'application/json'}
+                });
+        }
+		this.registrar = function(datosUsuario){
+            return $http({
+                    url: urlJob,
                     method: "POST",
                     data: JSON.stringify(datosUsuario),
                     headers: {'Content-Type': 'application/json'}
