@@ -8,13 +8,13 @@
 
 <div class="jumbotron">
     <div ng-controller="MainCtrl as main">
-    Choose:
-    <a href="#/perfil">Perfil</a> |
-    <a href="#/galeria">Galeria</a> |
-    <a href="#/galeria">Ubicacion</a><br/>
-
-    <div >
-        <div ng-include="'views/galeria.html'" ></div>
-    </div>
+		<div class="btn-group">
+		  <button type="button" class="btn btn-primary" ng-click="tab_url = 'views/main.html'">Perfil</button>
+		  <button type="button" class="btn btn-primary" ng-click="tab_url = 'views/galeria.html'">Galeria</button>
+		  <button type="button" class="btn btn-primary" ng-click="tab_url = 'views/mapUs.html'">Ubicacion</button>
+		</div>
+		<div >
+			<div ng-include="tab_url" ></div>
+		</div>
     </div>
 </div>
