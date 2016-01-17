@@ -3,8 +3,21 @@ angular.module('angularSpa')
 	$scope.getTimes=function(n){
      return new Array(n);
 	};
-	/**Colocamos los datos del usuario para obtener la id de la galeria */
 	var idUsuario = {'idUsuario':$localStorage.id};
+	$scope.darlike=function(idFoto){
+        banana = {idUsuario:$localStorage.id, foto:idFoto}
+	   galeriaService.darLike(banana)
+					.success(function(data){
+						//Respuesta del servidor
+						console.log(data);
+						console.log("galeria"+data["idGaleria"]);
+                        $scope.fotos = data;
+					})
+					.error(function(error){
+						console.log(error);
+					});
+	};
+	/**Colocamos los datos del usuario para obtener la id de la galeria */
 	var tipo = "SUBIDA";
 	usuario = {idUsuario:idUsuario,tipo:tipo}
 	

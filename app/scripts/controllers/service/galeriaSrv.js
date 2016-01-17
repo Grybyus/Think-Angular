@@ -1,6 +1,7 @@
 angular.module('angularSpa')
     .service('galeriaService', function($http){
         var urlBase = 'http://localhost:8080/Think-INK/verGaleria';
+        var urlBaseLike = 'http://localhost:8080/Think-INK/darLike';
         this.cargarGaleria = function(datosUsuario){
             return $http({
                     url: urlBase,
@@ -9,4 +10,13 @@ angular.module('angularSpa')
                     headers: {'Content-Type': 'application/json'}
                 });
         }
-    });
+        this.darLike = function(datosUsuario){
+            return $http({
+                    url: urlBaseLike,
+                    method: "POST",
+                    data: JSON.stringify(datosUsuario),
+                    headers: {'Content-Type': 'application/json'}
+                });
+        }
+    })
+    ;

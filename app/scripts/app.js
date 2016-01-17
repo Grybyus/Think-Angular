@@ -6,8 +6,8 @@
     .config(function($routeProvider){
         $routeProvider
         .when('/home', {
-            templateUrl: 'views/main.html',
-            controller: 'MainCtrl'
+            templateUrl: 'views/perfil.html',
+            controller: 'perfilCtrl'
           })
         .when('/about', {
             templateUrl: 'views/about.html',

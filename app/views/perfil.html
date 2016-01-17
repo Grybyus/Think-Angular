@@ -1,91 +1,20 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Think-Ink</title>
-  <!-- Recursos de bower-->
-  <!-- build:css css/vendor.css -->   
-  <!-- bower:css -->
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-  <!-- endbower -->
-  <!-- endbuild -->
+<div class="jumbotron" style="background:images/Pasion.jpg; background-size: 100% auto">
+	<!-- Mostramos la portada, la foto de perfil y el nombre de usuario-->
+	<!-- Obtener los datos del usario para mostrar -->
 
-  <!-- Estilos personalizados-->
-  <!-- build:css css/main.css -->  
-  <!-- inject:css -->
-  <link rel="stylesheet" href="styles/main.css">
-  <!-- endinject -->
-  <!-- endbuild -->
-</head>
-<body ng-app="angularSpa" style="font-family: impact; text-shadow: 2px 2px 2px black;">
+	<img class="img-thumbnail img-right" src="images/thinkinklogo.png" width="100px" height="100px" alt="perfil">
+	<p><button type="button" class="btn btn-link btn-right">Nombre Usuario</button></p>
+</div>
 
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#/home">
-        <img class="logo" src="images/logoconnombre.png" alt="logo">
-      </a>
+<div class="jumbotron">
+    <div ng-controller="MainCtrl as main">
+    Choose:
+    <a href="#/perfil">Perfil</a> |
+    <a href="#/galeria">Galeria</a> |
+    <a href="#/galeria">Ubicacion</a><br/>
+
+    <div >
+        <div ng-include="'views/galeria.html'" ></div>
     </div>
-  </div>
-  <ul class="nav navbar-nav navbar-right">
-    <li><a href="#/home">Inicio</a></li>
-    <li><a href="#/upload">Subir Foto</a></li>
-	<li><a href="#/perfil">Perfil</a></li>
-    <li><a href="#/login">Login</a></li>
-    <li><a href="#/about">FAQ!</a></li>
-  </ul>
-</nav>
-<!-- Creamos un container para las cosas del usuario-->
-<div class="container">
-	<div class="jumbotron">
-		<!-- Mostramos la portada, la foto de perfil y el nombre de usuario-->
-		<img id="bg" src="images/Pasion.jpg"  alt="portada">
-		<img class="logo" src="images/thinkinklogo.png" alt="perfil">
-		<p><button type="button" class="btn btn-link btn-right">Nombre Usuario</button></p>
-	</div>
-<nav class="navbar navbar-default">
-	<!-- Seleccionamos la galeria que deseamos cargar-->
-	<ul class="nav navbar-nav navbar-right ">
-		<li><a href="#/galeria">Galeria</a></li>
-	</ul>
-</nav>
-<div class="container">
-  <br></br>
-<br></br>
-    <div ng-view=""></div>
+    </div>
 </div>
-</div>
-  <!-- Recursos de bower-->
-  <!-- build:js js/vendor.js --> 
-  <!-- bower:js -->
-  <script src="bower_components/jquery/dist/jquery.js"></script>
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <!-- endbower -->
-  <!-- endbuild -->
-
-  <!-- Recursos personales-->
-  <!-- build:js js/scripts.js -->   
-  <!-- inject:js -->
-  <script src="scripts/app.js"></script>
-  <script src="scripts/bk.js"></script>
-  <script src="scripts/controllers/aboutCtrl.js"></script>
-  <script src="scripts/controllers/actorsCtrl.js"></script>
-  <script src="scripts/controllers/galeriaCtrl.js"></script>
-  <script src="scripts/controllers/home.js"></script>
-  <script src="scripts/controllers/loginCtrl.js"></script>
-  <script src="scripts/controllers/mainCtrl.js"></script>
-  <script src="scripts/controllers/perfilCtrl.js"></script>
-  <script src="scripts/controllers/registroCtrl.js"></script>
-  <script src="scripts/controllers/showActorCtrl.js"></script>
-  <script src="scripts/controllers/uploadCtrl.js"></script>
-  <script src="scripts/controllers/service/actorsSrv.js"></script>
-  <script src="scripts/controllers/service/registroSrv.js"></script>
-  <script src="scripts/controllers/service/usuarioSrv.js"></script>
-  <script src="scripts/controllers/service/galeriaSrv.js"></script>
-  <script src="scripts/controllers/service/perfilSrv.js"></script>
-  <!-- endinject -->
-  <!-- endbuild -->
-</body>
-</html>
