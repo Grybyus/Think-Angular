@@ -60,9 +60,13 @@ angular.module('angularSpa')
 	
 	//Arreglo de marcadores, que se mantendra con largo 1
    $scope.marcadores = [{lat:-33.4463731,lng:-70.6871091}];
-   //Una vez inicializado el mapa se guarda en el scope
-   NgMap.getMap().then(function(map) {
-      $scope.map = map;
+   //Una vez inicializado el mapa de editar se guarda en el scope
+    $scope.$on('mapInitialized', function(event, map) {
+        if(map.id == 'editar'){
+            $scope.map = map;
+        }else{
+            $scope.map = null;
+        }
     });
     // Funcion on-Click
    $scope.setMarcador = function(e){
@@ -121,8 +125,9 @@ angular.module('angularSpa')
                     //do something
                 });
             };
-  }
-  ).directive('progressBar', [
+  })
+  
+  .directive('progressBar',
         function() {
             return {
                 link: function ($scope, el, attrs) {
@@ -131,5 +136,4 @@ angular.module('angularSpa')
                     });
                 }
             };
-            }
-        ]);
+        });

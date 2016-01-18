@@ -1,6 +1,6 @@
 <body>
 	<div  ALIGN=center class = "container3" style="height:auto; background-color: rgba(255, 255, 255, 0.5)">
-		  <ng-map center="[-33.4463731,-70.6871091]" on-click="setMarcador()">
+		  <ng-map id='editar' center="[-33.4463731,-70.6871091]" on-click="setMarcador()">
 		     <marker ng-repeat="pos in marcadores" position="{{pos.lat}}, {{pos.lng}}"></marker>
 		  </ng-map>
 	  	<form name="form" ng-submit="registraMap()" role="form">
