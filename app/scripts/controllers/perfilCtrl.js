@@ -1,6 +1,7 @@
 angular.module('angularSpa')
-  .controller('perfilCtrl',function ($scope,logService,perfilService,$localStorage,$sessionStorage,NgMap,Upload) {
+  .controller('perfilCtrl',function ($scope,logService,perfilService, galeriaService,$localStorage,$sessionStorage,NgMap,Upload) {
       console.log("PERFIL MAIN CTRL");
+      $scope.tab_url = 'views/main.html';
       console.log(perfilService.cargarGaleria);
         console.log($localStorage)
 		$scope.items = {
@@ -20,7 +21,7 @@ angular.module('angularSpa')
             console.log(data["longitud"]);
             console.log({lat: data["latitud"], lng: data["longitud"]});
             $scope.marcador[0] = {lat: data["latitud"], lng: data["longitud"]};
-            
+            $scope.nombreLocal = data["nombreLocal"];
             console.log(data["nombreLocal"])
           })
           .error(function(error){
@@ -88,11 +89,42 @@ angular.module('angularSpa')
             perfilService.registrar(datos).success(function(data){
                 console.log("EXITOOOOO!!!!")
                 console.log(data)
+                $scope.tab_url = 'views/mapUs.html'
+                datos = {idUsuario:$localStorage.id}
+    
+                perfilService.leerMark(datos)
+                    .success(function(data){
+                        //Respuesta del servidor
+                        console.log(data);
+                        console.log(data["latitud"]);
+                        console.log(data["longitud"]);
+                        console.log({lat: data["latitud"], lng: data["longitud"]});
+                        $scope.marcador[0] = {lat: data["latitud"], lng: data["longitud"]};
+                        
+                        $scope.nombreLocal = data["nombreLocal"];
+                        console.log(data["nombreLocal"])
+                    })
+                    .error(function(error){
+                        console.log(error);
+                    });
             }).error(function(error){
                 console.log(error);
             });
     }
-	
+	//Me gusta
+    var idUsuario = {'idUsuario':$localStorage.id};
+	$scope.darlike=function(idFoto){
+        user = {idUsuario:$localStorage.id, idFoto:idFoto}
+	   galeriaService.darLike(user)
+					.success(function(data){
+						//Respuesta del servidor
+						console.log(data);
+					})
+					.error(function(error){
+						console.log(error);
+					});
+	};
+    
 	//Subir imagen controler
             $scope.model = {};
             $scope.selectedFile = [];
@@ -122,6 +154,23 @@ angular.module('angularSpa')
                 }).success(function (data) {
                     
                     console.log("respuesta: "+JSON.stringify(data, null, 4));
+                    var idUsuario = {'idUsuario':$localStorage.id};
+                    var tipo = "SUBIDA";
+                    usuario = {idUsuario:idUsuario,tipo:tipo}
+                    
+                    $scope.tab_url = 'views/galeria.html'
+                    /**Cargamos la idGaleria */
+                    perfilService.cargarGaleria(usuario)
+                            .success(function(data){
+                                //Respuesta del servidor
+                                console.log(data);
+                                console.log("galeria"+data["idGaleria"]);
+                                $scope.fotos = data;
+                            })
+                            .error(function(error){
+                                console.log("error ",error);
+                            });
+                    
                     //do something
                 });
             };

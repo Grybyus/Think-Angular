@@ -1,3 +1,7 @@
+<div  ALIGN=center class = "container3" style="height:auto; background-color: rgba(255, 255, 255, 0.5)">
 <ng-map center="[{{marcador[0].lat}},{{marcador[0].lng}}]">
 	<marker ng-repeat="pos in marcador" position="{{pos.lat}}, {{pos.lng}}"></marker>
 </ng-map>
+
+<label for="mapname">{{nombreLocal}}</label>
+</div>

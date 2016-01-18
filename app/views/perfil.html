@@ -1,12 +1,13 @@
-<div class="jumbotron">
+<div class="panel panel-default">
+  <div class="panel-body" style="background:url(images/Portada.jpg); background-size: 100% auto">
 	<!-- Mostramos la portada, la foto de perfil y el nombre de usuario-->
 	<!-- Obtener los datos del usario para mostrar -->
-	<div style="background:url(images/Portada.jpg) background-size: 100% auto"></div>
 	<img class="img-thumbnail img-right" src="images/Perfil.jpg" width="150px" height="150px" alt="perfil">
+  </div>
 </div>
 
 <div class="jumbotron">
-    <div ng-controller="MainCtrl as main">
+    <div >
 		<div class="btn-group">
 		  <button type="button" class="btn btn-primary" ng-click="tab_url = 'views/main.html'">Perfil</button>
 		  <button type="button" class="btn btn-primary" ng-click="tab_url = 'views/galeria.html'">Galeria</button>

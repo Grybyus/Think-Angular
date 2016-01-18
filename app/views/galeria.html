@@ -1,12 +1,14 @@
 <div class="container">
 	<h1>Galeria</h1>
 	<div class="row">
-		<div class="col-sm-6 col-md-4" ng-repeat="pic in fotos">
+		<div class="col-lg-4 col-md-2 col-xs-3 thumb" ng-repeat="pic in fotos">
 			<!-- Cargamos las imagenes con sus respectivos datos (galeria.js) -->
             <div class="thumbnail">
-            <div style="background:url(http://localhost:8080/Think-INK/verFoto/{{pic.idFoto}}); background-size: 100% auto; width:300px; height:300px" ></div>
+            <img class="img-responsive" src="http://localhost:8080/Think-INK/verFoto/{{pic.idFoto}}" style="object-fit: none;object-position: center;width:300px; height:300px" alt="">
+            <!-- <div style="background:url(http://localhost:8080/Think-INK/verFoto/{{pic.idFoto}}); background-size: 100% auto; width:300px; height:300px" ></div> -->
 			<!-- Botton de like-->
-			<p><button class="btn btn-primary" role="button" ng-click="darlike(pic.idFoto)" >Like</button></p>
+			<figcaption class="figure-caption text-xs-right pull-right" style="margin-right:.5cm;margin-top:.2cm;margin-bottom:.2cm">{{pic.cantidadMegusta}}</figcaption><button class="btn btn-primary pull-right" ng-disabled="isDisabled" 
+            role="button" ng-click="darlike(pic.idFoto); isDisabled=true; pic.cantidadMegusta = pic.cantidadMegusta+1 " style="margin-right:.5cm;margin-top:.2cm;margin-bottom:.2cm"> Like</button>
 			</div>
 		</div>
 	</div> 	

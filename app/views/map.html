@@ -4,8 +4,8 @@
 		     <marker ng-repeat="pos in marcadores" position="{{pos.lat}}, {{pos.lng}}"></marker>
 		  </ng-map>
 	  	<form name="form" ng-submit="registraMap()" role="form">
-	        <label for="mapname">Nombre del Local</label>
-	        <input ng-model="map.nom" type="name" class="form-control" placeholder="Ej: Think-ink" id="mapname" required = "" autofocus="">
+	        <label for="mapname">{{nombreLocal}}</label>
+	        <input ng-model="map.nom" type="name" class="form-control" value="{{nombreLocal}}" placeholder="Ej: Think-ink" id="mapname" required = "" autofocus="">
 	        <span ng-show="form.mapname.$dirty && form.mapname.$error.required" class="help-block"></span>
 	        <div class="form-actions" ALIGN=center>
 	            <button type="submit" ng-disabled="form.$invalid || map.dataLoading" class="btn btn-primary">Registrar Marcador</button>

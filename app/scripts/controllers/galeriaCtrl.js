@@ -5,8 +5,8 @@ angular.module('angularSpa')
 	};
 	var idUsuario = {'idUsuario':$localStorage.id};
 	$scope.darlike=function(idFoto){
-        banana = {idUsuario:$localStorage.id, foto:idFoto}
-	   galeriaService.darLike(banana)
+        user = {idUsuario:$localStorage.id, foto:idFoto}
+	   galeriaService.darLike(user)
 					.success(function(data){
 						//Respuesta del servidor
 						console.log(data);
